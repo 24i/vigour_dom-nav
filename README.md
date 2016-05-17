@@ -1,7 +1,7 @@
 # dom-nav
 Navigate DOM elements in all directions (←↑→↓)
 
-Example using [Brisky](https://github.com/vigour-io/brisky):
+###Example using [Brisky](https://github.com/vigour-io/brisky):
 ```js
 var elem = {
   class: 'one-of-many',
