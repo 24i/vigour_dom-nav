@@ -1,6 +1,6 @@
 {
   "name": "dom-nav",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Navigate DOM elements in all directions (←↑→↓)",
   "main": "index.js",
   "scripts": {
