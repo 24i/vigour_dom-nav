@@ -1,6 +1,5 @@
 'use strict'
 exports.up = function navup (target) {
-  console.log('wtf?')
   var prev = target.previousSibling
   if (prev) {
     var rect = target.getBoundingClientRect()
@@ -9,7 +8,6 @@ exports.up = function navup (target) {
     var prevrect = prev.getBoundingClientRect()
     var fallback
     while (prevrect.top + prevrect.height >= top) {
-      console.log('ok?', prev)
       prev = prev.previousSibling
       if (prev) {
         prevrect = prev.getBoundingClientRect()
@@ -20,7 +18,6 @@ exports.up = function navup (target) {
     while (prev) {
       prevrect = prev.getBoundingClientRect()
       if (prevrect.left <= center) {
-        console.log('hur', prevrect.left, center)
         return prev
       } else {
         fallback = prev
