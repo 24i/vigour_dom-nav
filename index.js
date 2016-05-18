@@ -6,7 +6,7 @@ exports.up = function navup (target) {
     var top = rect.top
     var center = rect.left + rect.width * 0.5
     var prevrect = prev.getBoundingClientRect()
-    var prevleft
+    var fallback
     while (prevrect.top >= top) {
       prev = prev.previousSibling
       if (prev) {
@@ -17,15 +17,14 @@ exports.up = function navup (target) {
     }
     while (prev) {
       prevrect = prev.getBoundingClientRect()
-      prevleft = prevrect.left
-      if (prevleft <= center) {
+      if (prevrect.left <= center) {
         return prev
       } else {
-        target = prev
+        fallback = prev
         prev = prev.previousSibling
       }
     }
-    return target
+    return fallback
   }
 }
 
@@ -36,6 +35,7 @@ exports.down = function navdown (target) {
     var bottom = rect.bottom
     var center = rect.left + rect.width * 0.5
     var nextrect = next.getBoundingClientRect()
+    var fallback
     while (nextrect.bottom <= bottom) {
       next = next.nextSibling
       if (next) {
@@ -49,11 +49,11 @@ exports.down = function navdown (target) {
       if (nextrect.right >= center) {
         return next
       } else {
-        target = next
+        fallback = next
         next = next.nextSibling
       }
     }
-    return target
+    return fallback
   }
 }
 
